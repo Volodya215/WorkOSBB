@@ -49,6 +49,8 @@ namespace Proga_Sharp
             Console.WriteLine("Enter your login: ");
             login = Console.ReadLine();
             password = CheckPassword();
+            Console.WriteLine("Enter your name: ");
+            name = Console.ReadLine();
         }
 
         private void Create_Company()
