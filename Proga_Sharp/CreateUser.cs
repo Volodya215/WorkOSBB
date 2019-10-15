@@ -51,18 +51,83 @@ namespace Proga_Sharp
             password = CheckPassword();
             Console.WriteLine("Enter your name: ");
             name = Console.ReadLine();
+            Console.WriteLine("Enter size of your flat: ");
+            size = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Enter count inhab: ");
+            count_inhab = Convert.ToInt32(Console.ReadLine());
+
+            Inhabitant temp = new Inhabitant(login, password, name, 0, size, count_inhab);
+
+            using (var sw = new StreamWriter(temp.Login, true))
+            {
+                sw.WriteLine(type);
+                sw.WriteLine(size);
+                sw.WriteLine(count_inhab);
+            }
+            User.CreateFile(temp);
+
+            temp.Get_info();
         }
 
-        private void Create_Company()
-        {
-
-        }
-
+        // Створює користувача - пільговика
         private void Create_User_benefit()
         {
+            string password, login, name, reason;
+            double discount;
+            int type = 2;
 
+            Console.WriteLine("Enter your login: ");
+            login = Console.ReadLine();
+            password = CheckPassword();
+            Console.WriteLine("Enter your name: ");
+            name = Console.ReadLine();
+            Console.WriteLine("Enter reason your benefit: ");
+            reason = Console.ReadLine();
+            Console.WriteLine("Enter count of the discount: ");
+            discount = Convert.ToDouble(Console.ReadLine());
+
+            UserBenefit temp = new UserBenefit(login, password, name, 0, discount, reason);
+
+            using (var sw = new StreamWriter(temp.Login, true))
+            {
+                sw.WriteLine(type);
+                sw.WriteLine(reason);
+                sw.WriteLine(discount);
+            }
+            User.CreateFile(temp);
+
+            temp.Get_info();
         }
 
+        // Створюємо користувача - орендара
+        private void Create_Company()
+        {
+            string password, login, name, typeCompany;
+            int countOfEmploye;
+            int type = 3;
+
+            Console.WriteLine("Enter your login: ");
+            login = Console.ReadLine();
+            password = CheckPassword();
+            Console.WriteLine("Enter your name: ");
+            name = Console.ReadLine();
+            Console.WriteLine("Enter type of your company: ");
+            typeCompany = Console.ReadLine();
+            Console.WriteLine("Enter count of employe: ");
+            countOfEmploye = Convert.ToInt32(Console.ReadLine());
+
+            Company temp = new Company(login, password, name, 0, typeCompany, countOfEmploye);
+
+            using (var sw = new StreamWriter(temp.Login, true))
+            {
+                sw.WriteLine(type);
+                sw.WriteLine(typeCompany);
+                sw.WriteLine(countOfEmploye);
+            }
+            User.CreateFile(temp);
+
+            temp.Get_info();
+        }
 
         // Перевіряє чи пароль введено вірно
         private string CheckPassword()

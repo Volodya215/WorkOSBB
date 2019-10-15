@@ -21,7 +21,7 @@ namespace Proga_Sharp
         }
 
         // Конструктор з параметрами
-        public UserBenefit(string login, string password, string name, int sum, int discount, string reason) : base(login, password, name, sum)
+        public UserBenefit(string login, string password, string name, int sum, double discount, string reason) : base(login, password, name, sum)
         {
             Discount = discount;
             Reason = reason;

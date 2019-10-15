@@ -93,6 +93,18 @@ namespace Proga_Sharp
                 return false;
             }
         }
+
+        public static void CreateFile(User temp)
+        {
+            using (var sw = new StreamWriter(temp.Login, true))
+            {
+                sw.WriteLine(temp.Login);
+                sw.WriteLine(temp.password);
+                sw.WriteLine(temp.ID);
+                sw.WriteLine(temp.name);
+                sw.WriteLine(temp.sum);
+            }
+        }
     }
 }
 
