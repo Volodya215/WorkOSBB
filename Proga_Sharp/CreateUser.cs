@@ -51,7 +51,7 @@ namespace Proga_Sharp
             password = CheckPassword();
             Console.WriteLine("Enter your name: ");
             name = Console.ReadLine();
-            Console.WriteLine("Enter size of your flat: ");
+            Console.WriteLine("Enter size of your flat: "); 
             size = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine("Enter count inhab: ");
             count_inhab = Convert.ToInt32(Console.ReadLine());
