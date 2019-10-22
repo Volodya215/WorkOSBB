@@ -1,5 +1,4 @@
-﻿using MySql.Data.MySqlClient;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -11,14 +10,17 @@ using System.Windows.Forms;
 
 namespace Proga_Sharp
 {
-    public partial class Form2 : Form
+    public partial class RegisterForm : Form
     {
-        public Form2()
+        public RegisterForm()
         {
             InitializeComponent();
 
-            //this.passwordField.AutoSize = false;
-            //this.passwordField.Size = new Size(this.passwordField.Size.Width, height: 54);
+            userNameField.Text = "Введіть ім’я";
+            userNameField.ForeColor = Color.Gray;
+
+            userSurnameField.Text = "Введіть фамілію";
+            userSurnameField.ForeColor = Color.Gray;
 
             loginField.Text = "Введіть логін";
             loginField.ForeColor = Color.Gray;
@@ -26,20 +28,26 @@ namespace Proga_Sharp
             passwordField.UseSystemPasswordChar = false;
             passwordField.Text = "Введіть пароль";
             passwordField.ForeColor = Color.Gray;
+        }
+
+        private void ButtonLogin_Click(object sender, EventArgs e)
+        {
 
         }
 
-     
+        // Кнопка закриття вікна
         private void CloseButton_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        // Кнопка закриття вікна змінює колір на червоний при наведені
         private void CloseButton_MouseEnter(object sender, EventArgs e)
         {
             closeButton.ForeColor = Color.Red;
         }
 
+        // Кнопка закриття вікна змінює колір на білий, якщо курсор не наведений
         private void CloseButton_MouseLeave(object sender, EventArgs e)
         {
             closeButton.ForeColor = Color.White;
@@ -49,42 +57,55 @@ namespace Proga_Sharp
         // Рух вікна
         private void MainPanel_MouseMove(object sender, MouseEventArgs e)
         {
-            if(e.Button == MouseButtons.Left)
+            if (e.Button == MouseButtons.Left)
             {
                 this.Left += e.X - lastpoint.X;
                 this.Top += e.Y - lastpoint.Y;
             }
         }
 
-       
+        // Зафіксувати координати при натиснені на вікно
         private void MainPanel_MouseDown(object sender, MouseEventArgs e)
         {
             lastpoint = new Point(e.X, e.Y);
         }
 
-        // Залогінитися юзером
-        private void ButtonLogin_Click(object sender, EventArgs e)
+        // Підказка в полі імені
+        private void UserNameField_Enter(object sender, EventArgs e)
         {
-            String loginUser = loginField.Text;
-            String passUser = passwordField.Text;
+            if(userNameField.Text == "Введіть ім’я")
+            {
+                userNameField.Text = "";
+                userNameField.ForeColor = Color.Black;
+            }
+        }
 
-            DB db = new DB();
+        private void UserNameField_Leave(object sender, EventArgs e)
+        {
+            if (userNameField.Text == "")
+            {
+                userNameField.Text = "Введіть ім’я";
+                userNameField.ForeColor = Color.Gray;
+            }
+        }
 
-            DataTable table = new DataTable();
+        // Підказка в полі фамілії
+        private void UserSurnameField_Enter(object sender, EventArgs e)
+        {
+            if (userSurnameField.Text == "Введіть фамілію")
+            {
+                userSurnameField.Text = "";
+                userSurnameField.ForeColor = Color.Black;
+            }
+        }
 
-            MySqlDataAdapter adapter = new MySqlDataAdapter();
-
-            MySqlCommand command = new MySqlCommand("SELECT * FROM `users` WHERE `login` = @uL AND `pass` = @uP", db.getConnection());
-            command.Parameters.Add("@uL", MySqlDbType.VarChar).Value = loginUser;
-            command.Parameters.Add("@uP", MySqlDbType.VarChar).Value = passUser;
-
-            adapter.SelectCommand = command;
-            adapter.Fill(table);
-
-            if (table.Rows.Count > 0)
-                MessageBox.Show("Доступ дозволено");
-            else
-                MessageBox.Show("Невірно введений логін або пароль!");
+        private void UserSurnameField_Leave(object sender, EventArgs e)
+        {
+            if (userSurnameField.Text == "")
+            {
+                userSurnameField.Text = "Введіть фамілію";
+                userSurnameField.ForeColor = Color.Gray;
+            }
         }
 
         // Підказка в полі логін
