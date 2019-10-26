@@ -1,6 +1,6 @@
 ﻿namespace Proga_Sharp
 {
-    partial class Form2
+    partial class LoginForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.mainPanel = new System.Windows.Forms.Panel();
+            this.registrLabel = new System.Windows.Forms.Label();
             this.buttonLogin = new System.Windows.Forms.Button();
             this.passwordField = new System.Windows.Forms.TextBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -37,7 +38,6 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.closeButton = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.registrLabel = new System.Windows.Forms.Label();
             this.mainPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -61,6 +61,21 @@
             this.mainPanel.TabIndex = 0;
             this.mainPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MainPanel_MouseDown);
             this.mainPanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MainPanel_MouseMove);
+            // 
+            // registrLabel
+            // 
+            this.registrLabel.AutoSize = true;
+            this.registrLabel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.registrLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.registrLabel.ForeColor = System.Drawing.Color.White;
+            this.registrLabel.Location = new System.Drawing.Point(173, 413);
+            this.registrLabel.Name = "registrLabel";
+            this.registrLabel.Size = new System.Drawing.Size(153, 17);
+            this.registrLabel.TabIndex = 6;
+            this.registrLabel.Text = "Ще немає акаунта?";
+            this.registrLabel.Click += new System.EventHandler(this.RegistrLabel_Click);
+            this.registrLabel.MouseEnter += new System.EventHandler(this.RegistrLabel_MouseEnter);
+            this.registrLabel.MouseLeave += new System.EventHandler(this.RegistrLabel_MouseLeave);
             // 
             // buttonLogin
             // 
@@ -158,29 +173,14 @@
             this.label1.Text = "Авторизація";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // registrLabel
-            // 
-            this.registrLabel.AutoSize = true;
-            this.registrLabel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.registrLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.registrLabel.ForeColor = System.Drawing.Color.White;
-            this.registrLabel.Location = new System.Drawing.Point(173, 413);
-            this.registrLabel.Name = "registrLabel";
-            this.registrLabel.Size = new System.Drawing.Size(153, 17);
-            this.registrLabel.TabIndex = 6;
-            this.registrLabel.Text = "Ще немає акаунта?";
-            this.registrLabel.Click += new System.EventHandler(this.RegistrLabel_Click);
-            this.registrLabel.MouseEnter += new System.EventHandler(this.RegistrLabel_MouseEnter);
-            this.registrLabel.MouseLeave += new System.EventHandler(this.RegistrLabel_MouseLeave);
-            // 
-            // Form2
+            // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(495, 450);
             this.Controls.Add(this.mainPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Form2";
+            this.Name = "LoginForm";
             this.Text = "Form2";
             this.mainPanel.ResumeLayout(false);
             this.mainPanel.PerformLayout();

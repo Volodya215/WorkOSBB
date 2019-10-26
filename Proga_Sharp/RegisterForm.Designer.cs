@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.mainPanel = new System.Windows.Forms.Panel();
+            this.loginLabel = new System.Windows.Forms.Label();
             this.userNameField = new System.Windows.Forms.TextBox();
             this.userSurnameField = new System.Windows.Forms.TextBox();
             this.buttonRegister = new System.Windows.Forms.Button();
@@ -39,7 +40,6 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.closeButton = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.loginLabel = new System.Windows.Forms.Label();
             this.mainPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -65,6 +65,21 @@
             this.mainPanel.TabIndex = 1;
             this.mainPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MainPanel_MouseDown);
             this.mainPanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MainPanel_MouseMove);
+            // 
+            // loginLabel
+            // 
+            this.loginLabel.AutoSize = true;
+            this.loginLabel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.loginLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.loginLabel.ForeColor = System.Drawing.Color.White;
+            this.loginLabel.Location = new System.Drawing.Point(570, 413);
+            this.loginLabel.Name = "loginLabel";
+            this.loginLabel.Size = new System.Drawing.Size(128, 17);
+            this.loginLabel.TabIndex = 7;
+            this.loginLabel.Text = "Авторизуватися";
+            this.loginLabel.Click += new System.EventHandler(this.LoginLabel_Click);
+            this.loginLabel.MouseEnter += new System.EventHandler(this.LoginLabel_MouseEnter);
+            this.loginLabel.MouseLeave += new System.EventHandler(this.LoginLabel_MouseLeave);
             // 
             // userNameField
             // 
@@ -182,19 +197,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Регістрація";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // loginLabel
-            // 
-            this.loginLabel.AutoSize = true;
-            this.loginLabel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.loginLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.loginLabel.ForeColor = System.Drawing.Color.White;
-            this.loginLabel.Location = new System.Drawing.Point(570, 413);
-            this.loginLabel.Name = "loginLabel";
-            this.loginLabel.Size = new System.Drawing.Size(128, 17);
-            this.loginLabel.TabIndex = 7;
-            this.loginLabel.Text = "Авторизуватися";
-            this.loginLabel.Click += new System.EventHandler(this.LoginLabel_Click);
             // 
             // RegisterForm
             // 

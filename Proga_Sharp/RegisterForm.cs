@@ -34,7 +34,7 @@ namespace Proga_Sharp
         // Кнопка закриття вікна
         private void CloseButton_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Application.Exit();
         }
 
         // Кнопка закриття вікна змінює колір на червоний при наведені
@@ -206,8 +206,18 @@ namespace Proga_Sharp
         private void LoginLabel_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Form2 loginForm = new Form2();
+            LoginForm loginForm = new LoginForm();
             loginForm.Show();
+        }
+
+        private void LoginLabel_MouseEnter(object sender, EventArgs e)
+        {
+            loginLabel.ForeColor = Color.Red;
+        }
+
+        private void LoginLabel_MouseLeave(object sender, EventArgs e)
+        {
+            loginLabel.ForeColor = Color.White;
         }
     }
 }

@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace Proga_Sharp
 {
-    public partial class Form2 : Form
+    public partial class LoginForm : Form
     {
-        public Form2()
+        public LoginForm()
         {
             InitializeComponent();
 
@@ -84,6 +84,7 @@ namespace Proga_Sharp
 
             adapter.SelectCommand = command;
             adapter.Fill(table);
+            
 
             if (table.Rows.Count > 0)
                 MessageBox.Show("Доступ дозволено");
