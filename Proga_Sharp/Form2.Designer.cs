@@ -31,21 +31,23 @@
             this.mainPanel = new System.Windows.Forms.Panel();
             this.buttonLogin = new System.Windows.Forms.Button();
             this.passwordField = new System.Windows.Forms.TextBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.loginField = new System.Windows.Forms.TextBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.closeButton = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.registrLabel = new System.Windows.Forms.Label();
             this.mainPanel.SuspendLayout();
-            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // mainPanel
             // 
             this.mainPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(19)))), ((int)(((byte)(28)))));
+            this.mainPanel.Controls.Add(this.registrLabel);
             this.mainPanel.Controls.Add(this.buttonLogin);
             this.mainPanel.Controls.Add(this.passwordField);
             this.mainPanel.Controls.Add(this.pictureBox2);
@@ -68,9 +70,9 @@
             this.buttonLogin.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(14)))), ((int)(((byte)(34)))));
             this.buttonLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonLogin.Font = new System.Drawing.Font("Trebuchet MS", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonLogin.Location = new System.Drawing.Point(162, 366);
+            this.buttonLogin.Location = new System.Drawing.Point(161, 346);
             this.buttonLogin.Name = "buttonLogin";
-            this.buttonLogin.Size = new System.Drawing.Size(158, 47);
+            this.buttonLogin.Size = new System.Drawing.Size(190, 47);
             this.buttonLogin.TabIndex = 5;
             this.buttonLogin.Text = "Вхід";
             this.buttonLogin.UseVisualStyleBackColor = false;
@@ -79,7 +81,7 @@
             // passwordField
             // 
             this.passwordField.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.passwordField.Location = new System.Drawing.Point(162, 293);
+            this.passwordField.Location = new System.Drawing.Point(161, 272);
             this.passwordField.Name = "passwordField";
             this.passwordField.Size = new System.Drawing.Size(231, 42);
             this.passwordField.TabIndex = 4;
@@ -87,15 +89,35 @@
             this.passwordField.Enter += new System.EventHandler(this.PasswordField_Enter);
             this.passwordField.Leave += new System.EventHandler(this.PasswordField_Leave);
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::Proga_Sharp.Properties.Resources._lock;
+            this.pictureBox2.Location = new System.Drawing.Point(91, 250);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(64, 64);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 3;
+            this.pictureBox2.TabStop = false;
+            // 
             // loginField
             // 
             this.loginField.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.loginField.Location = new System.Drawing.Point(162, 197);
+            this.loginField.Location = new System.Drawing.Point(161, 176);
             this.loginField.Name = "loginField";
             this.loginField.Size = new System.Drawing.Size(231, 42);
             this.loginField.TabIndex = 2;
             this.loginField.Enter += new System.EventHandler(this.LoginField_Enter);
             this.loginField.Leave += new System.EventHandler(this.LoginField_Leave);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Proga_Sharp.Properties.Resources.user;
+            this.pictureBox1.Location = new System.Drawing.Point(91, 154);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(64, 64);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
             // 
             // panel2
             // 
@@ -136,25 +158,20 @@
             this.label1.Text = "Авторизація";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // pictureBox2
+            // registrLabel
             // 
-            this.pictureBox2.Image = global::Proga_Sharp.Properties.Resources._lock;
-            this.pictureBox2.Location = new System.Drawing.Point(92, 271);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(64, 64);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 3;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Proga_Sharp.Properties.Resources.user;
-            this.pictureBox1.Location = new System.Drawing.Point(92, 175);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(64, 64);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
+            this.registrLabel.AutoSize = true;
+            this.registrLabel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.registrLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.registrLabel.ForeColor = System.Drawing.Color.White;
+            this.registrLabel.Location = new System.Drawing.Point(173, 413);
+            this.registrLabel.Name = "registrLabel";
+            this.registrLabel.Size = new System.Drawing.Size(153, 17);
+            this.registrLabel.TabIndex = 6;
+            this.registrLabel.Text = "Ще немає акаунта?";
+            this.registrLabel.Click += new System.EventHandler(this.RegistrLabel_Click);
+            this.registrLabel.MouseEnter += new System.EventHandler(this.RegistrLabel_MouseEnter);
+            this.registrLabel.MouseLeave += new System.EventHandler(this.RegistrLabel_MouseLeave);
             // 
             // Form2
             // 
@@ -167,10 +184,10 @@
             this.Text = "Form2";
             this.mainPanel.ResumeLayout(false);
             this.mainPanel.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -186,5 +203,6 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.TextBox loginField;
         private System.Windows.Forms.Button buttonLogin;
+        private System.Windows.Forms.Label registrLabel;
     }
 }

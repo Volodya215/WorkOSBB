@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -28,11 +29,6 @@ namespace Proga_Sharp
             passwordField.UseSystemPasswordChar = false;
             passwordField.Text = "Введіть пароль";
             passwordField.ForeColor = Color.Gray;
-        }
-
-        private void ButtonLogin_Click(object sender, EventArgs e)
-        {
-
         }
 
         // Кнопка закриття вікна
@@ -146,6 +142,72 @@ namespace Proga_Sharp
                 passwordField.Text = "Введіть пароль";
                 passwordField.ForeColor = Color.Gray;
             }
+        }
+
+        private void ButtonRegister_Click(object sender, EventArgs e)
+        {
+            if(userNameField.Text == "Введіть ім’я" || userSurnameField.Text == "Введіть фамілію" )
+            {
+                MessageBox.Show("Не введено ім’я або фамілію");
+                return;
+            }
+
+            if (loginField.Text == "Введіть логін" || passwordField.Text == "Введіть пароль")
+            {
+                MessageBox.Show("Не введено логін або пароль");
+                return;
+            }
+
+            if (isUserExist())
+                return;
+
+
+            DB db = new DB();
+            MySqlCommand command = new MySqlCommand("INSERT INTO `users_data`.`users` (`login`, `pass`, `name`, `surname`) VALUES (@login, @pass, @name, @surname)", db.getConnection());
+
+            command.Parameters.Add("@login", MySqlDbType.VarChar).Value = loginField.Text;
+            command.Parameters.Add("@pass", MySqlDbType.VarChar).Value = passwordField.Text;
+            command.Parameters.Add("@name", MySqlDbType.VarChar).Value = userNameField.Text;
+            command.Parameters.Add("@surname", MySqlDbType.VarChar).Value = userSurnameField.Text;
+
+            db.openConnection();
+
+            if ((command.ExecuteNonQuery() == 1))
+                MessageBox.Show("Акаунт успішно створено");
+            else
+                MessageBox.Show("Акаунт не створено");
+
+            db.closeConnection();
+        }
+
+        public bool isUserExist()
+        {
+            DB db = new DB();
+
+            DataTable table = new DataTable();
+
+            MySqlDataAdapter adapter = new MySqlDataAdapter();
+
+            MySqlCommand command = new MySqlCommand("SELECT * FROM `users` WHERE `login` = @uL", db.getConnection());
+            command.Parameters.Add("@uL", MySqlDbType.VarChar).Value = loginField.Text;
+
+            adapter.SelectCommand = command;
+            adapter.Fill(table);
+
+            if (table.Rows.Count > 0)
+            {
+                MessageBox.Show("Даний логін існує, спробуйте інший!!!");
+                return true;
+            }
+            else
+                return false;
+        }
+
+        private void LoginLabel_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form2 loginForm = new Form2();
+            loginForm.Show();
         }
     }
 }

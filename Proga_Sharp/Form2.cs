@@ -19,7 +19,8 @@ namespace Proga_Sharp
 
             //this.passwordField.AutoSize = false;
             //this.passwordField.Size = new Size(this.passwordField.Size.Width, height: 54);
-
+            
+            // Підказки для полів логін та пароль
             loginField.Text = "Введіть логін";
             loginField.ForeColor = Color.Gray;
 
@@ -30,16 +31,19 @@ namespace Proga_Sharp
         }
 
      
+        // Закриття вікна при натиснені на кнопку
         private void CloseButton_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Application.Exit();
         }
 
+        // Змінюємо колір кнопки при наведені курсора
         private void CloseButton_MouseEnter(object sender, EventArgs e)
         {
             closeButton.ForeColor = Color.Red;
         }
 
+        // Повертаємо колір кнопки назад, коли курсор покидає кнопку
         private void CloseButton_MouseLeave(object sender, EventArgs e)
         {
             closeButton.ForeColor = Color.White;
@@ -56,7 +60,7 @@ namespace Proga_Sharp
             }
         }
 
-       
+       // Фіксуємо точку натиснення поля
         private void MainPanel_MouseDown(object sender, MouseEventArgs e)
         {
             lastpoint = new Point(e.X, e.Y);
@@ -87,7 +91,7 @@ namespace Proga_Sharp
                 MessageBox.Show("Невірно введений логін або пароль!");
         }
 
-        // Підказка в полі логін
+        // Підказка в полі логін знкикає, коли заходимо в поле
         private void LoginField_Enter(object sender, EventArgs e)
         {
             if (loginField.Text == "Введіть логін")
@@ -97,6 +101,7 @@ namespace Proga_Sharp
             }
         }
 
+        // ПІдказка з’являється, коли покидаємо поле не ввівши даних
         private void LoginField_Leave(object sender, EventArgs e)
         {
             if (loginField.Text == "")
@@ -106,7 +111,7 @@ namespace Proga_Sharp
             }
         }
 
-        // Підказка в полі пароль
+        // Підказка в полі пароль знкикає, коли заходимо в поле
         private void PasswordField_Enter(object sender, EventArgs e)
         {
             if (passwordField.Text == "Введіть пароль")
@@ -117,6 +122,7 @@ namespace Proga_Sharp
             }
         }
 
+        // ПІдказка з’являється, коли покидаємо поле не ввівши даних
         private void PasswordField_Leave(object sender, EventArgs e)
         {
             if (passwordField.Text == "")
@@ -125,6 +131,27 @@ namespace Proga_Sharp
                 passwordField.Text = "Введіть пароль";
                 passwordField.ForeColor = Color.Gray;
             }
+        }
+
+        // При натиснені переходимо на форму реєстрації
+        private void RegistrLabel_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+
+            RegisterForm registrForm = new RegisterForm();
+            registrForm.Show();
+        }
+
+        // КОли наводимо мишку, текст змінює колір на червоний
+        private void RegistrLabel_MouseEnter(object sender, EventArgs e)
+        {
+            registrLabel.ForeColor = Color.Red;
+        }
+
+        // Коли забираємо мишку, текст змінбє колір назад на білий
+        private void RegistrLabel_MouseLeave(object sender, EventArgs e)
+        {
+            registrLabel.ForeColor = Color.White;
         }
     }
 }
