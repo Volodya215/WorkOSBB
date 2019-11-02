@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
-using System.Reflection;
 
 namespace Proga_Sharp
 {
@@ -14,13 +13,15 @@ namespace Proga_Sharp
         Pilga,
         Orendar
     };
+
+    // Клас організує роботу з юзером: створення нового, збереження в файл і зчитування з нього
     static class CreateUser
     { 
         // Додає нового користувача
         public static void Add_user()
         {
             int type;
-            Console.WriteLine("Choose your type of user: ");
+            Console.WriteLine("Choose your type of user (1-3): ");
             type = Convert.ToInt32(Console.ReadLine());
 
             switch (type)
@@ -186,36 +187,6 @@ namespace Proga_Sharp
                 Console.WriteLine(e.Message);
                 return false;
             }
-        }
-    }
-
-    // Клас для роботи з файлом: визначення позиції курсора та встановлення цієї позиції у файлі
-    public static class StreamReaderExtensions
-    {
-        readonly static FieldInfo charPosField = typeof(StreamReader).GetField("charPos", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance | BindingFlags.DeclaredOnly);
-        readonly static FieldInfo byteLenField = typeof(StreamReader).GetField("byteLen", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance | BindingFlags.DeclaredOnly);
-        readonly static FieldInfo charBufferField = typeof(StreamReader).GetField("charBuffer", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance | BindingFlags.DeclaredOnly);
-
-        public static long GetPosition(this StreamReader reader)
-        {
-            int byteLen = (int)byteLenField.GetValue(reader);
-            var position = reader.BaseStream.Position - byteLen;
-
-            int charPos = (int)charPosField.GetValue(reader);
-            if (charPos > 0)
-            {
-                var charBuffer = (char[])charBufferField.GetValue(reader);
-                var encoding = reader.CurrentEncoding;
-                var bytesConsumed = encoding.GetBytes(charBuffer, 0, charPos).Length;
-                position += bytesConsumed;
-            }
-            return position;
-        }
-
-        public static void SetPosition(this StreamReader reader, long position)
-        {
-            reader.DiscardBufferedData();
-            reader.BaseStream.Seek(position, SeekOrigin.Begin);
         }
     }
 }

@@ -8,8 +8,8 @@ namespace Proga_Sharp
 {
     class Company : User
     {
-        public string Type { get; private set;}
-        public int CountOfEmploye { get; private set;}
+        public string Type { get;  set;}
+        public int CountOfEmploye { get;  set;}
 
         public Company() : base()
         {

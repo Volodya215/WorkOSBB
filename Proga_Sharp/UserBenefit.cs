@@ -9,9 +9,9 @@ namespace Proga_Sharp
     class UserBenefit : User
     {
         // Знижка для користувача цього типу
-        public double Discount { get; private set; }
+        public double Discount { get;  set; }
         // Причина отримання пільг
-        public string Reason { get; private set; }
+        public string Reason { get;  set; }
 
         // Конструктор за замовчуванням
         public UserBenefit() : base()

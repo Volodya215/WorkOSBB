@@ -9,9 +9,10 @@ namespace Proga_Sharp
     class Inhabitant : User
     {
         // Розмір квартири
-        public int Size { get; private set; }
+        public int Size { get;  set; }
         // Кількість мешканців
-        public int Count_inhab { get; private set; }
+        public int Count_inhab { get;  set; }
+
 
         // Конструктор за замовчуванням
         public Inhabitant() : base()
@@ -37,7 +38,7 @@ namespace Proga_Sharp
         public override void Get_info() 
         {
             base.Get_info();
-            Console.WriteLine($"Size: {Size}\nCount_inhab {Count_inhab}\n");
+            Console.WriteLine($"Size: {Size}\nCount_inhab: {Count_inhab}\n");
         }
 
     }

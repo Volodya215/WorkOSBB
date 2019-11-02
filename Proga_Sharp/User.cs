@@ -106,16 +106,18 @@ namespace Proga_Sharp
             }
         }
 
-        public static User ReadFile(string login)
+
+        public static void DownloadDataUser(string login, long position, User temp)
         {
-            User temp = new User();
-
-            using (var sr = new StreamReader(login))
+            using(StreamReader sr = new StreamReader(login))
             {
-               var a = sr.BaseStream.Seek(0, SeekOrigin.Begin);
+                StreamReaderExtensions.SetPosition(sr, position);
+                temp.Login = sr.ReadLine();
+                temp.password = sr.ReadLine();
+                temp.ID = Convert.ToInt32(sr.ReadLine());
+                temp.name = sr.ReadLine();
+                temp.sum = Convert.ToInt32(sr.ReadLine());
             }
-
-                return temp;
         }
     }
 }

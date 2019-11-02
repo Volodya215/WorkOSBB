@@ -27,20 +27,22 @@ namespace Proga_Sharp
             //CreateUser.Add_user();
 
 
-            try
-            {
-                using (StreamWriter sr = new StreamWriter("dsfsdd   ^*sfsdf  "))
-                {
+            //try
+            //{
+            //    using (StreamWriter sr = new StreamWriter("dsfsdd   ^*sfsdf  "))
+            //    {
 
-                }
-                Console.WriteLine("OK");
-            }
-            catch(Exception )
-            {
-                Console.WriteLine("Can't open file!!!");
-            }
+            //    }
+            //    Console.WriteLine("OK");
+            //}
+            //catch(Exception )
+            //{
+            //    Console.WriteLine("Can't open file!!!");
+            //}
 
-
+            Console.Write("Enter login: ");
+            string login = Console.ReadLine();
+            AccessToUsers.ReadDataUsers(login);
 
             Console.ReadLine();
             return 0;

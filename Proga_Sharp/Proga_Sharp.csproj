@@ -67,6 +67,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AccessToUsers.cs" />
     <Compile Include="Company.cs" />
     <Compile Include="CreateUser.cs" />
     <Compile Include="DB.cs" />
