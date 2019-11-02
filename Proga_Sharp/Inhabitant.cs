@@ -20,10 +20,12 @@ namespace Proga_Sharp
             Count_inhab = 0;
         }
 
-        //// Конструктор копіювання
-        //public Inhabitant(User other) : base(other)
-        //{
-        //}
+        // Конструктор копіювання, на основі базового класу
+        public Inhabitant(User other, int size, int count) : base(other)
+        {
+            this.Size = size;
+            this.Count_inhab = count;
+        }
 
         // Конструктор з параметрами
         public Inhabitant(string login, string password, string name, int sum, int size, int count_inhab) : base(login, password, name, sum)

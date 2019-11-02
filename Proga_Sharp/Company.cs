@@ -27,6 +27,13 @@ namespace Proga_Sharp
             CountOfEmploye = count_of_employe;
         }
 
+        // Конструктор копіювання, на основі базового класу
+        public Company(User other, string type, int countOfEmploye) : base(other)
+        {
+            this.Type = type;
+            this.CountOfEmploye = countOfEmploye;
+        }
+
         public override void Get_info()
         {
             base.Get_info();

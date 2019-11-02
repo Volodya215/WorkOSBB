@@ -27,6 +27,13 @@ namespace Proga_Sharp
             Reason = reason;
         }
 
+        // Конструктор копіювання, на основі базового класу
+        public UserBenefit(User other, double discount, string reason) : base(other)
+        {
+            this.Discount = discount;
+            this.Reason = reason;
+        }
+
         public override void Get_info()
         {
             base.Get_info();

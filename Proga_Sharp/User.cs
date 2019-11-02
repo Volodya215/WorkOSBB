@@ -22,7 +22,7 @@ namespace Proga_Sharp
             Login = "";
             password = "none";
             name = "no name";
-            ID = Indent.GetID();
+            ID = Indent.GetID();  // забрати, щоб ід не проскакували, якщо буде потрібно
             sum = 0;
         }
 
@@ -104,6 +104,18 @@ namespace Proga_Sharp
                 sw.WriteLine(temp.name);
                 sw.WriteLine(temp.sum);
             }
+        }
+
+        public static User ReadFile(string login)
+        {
+            User temp = new User();
+
+            using (var sr = new StreamReader(login))
+            {
+               var a = sr.BaseStream.Seek(0, SeekOrigin.Begin);
+            }
+
+                return temp;
         }
     }
 }
