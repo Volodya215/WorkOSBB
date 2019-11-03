@@ -22,6 +22,7 @@ namespace Proga_Sharp
         {
             int type;
             Console.WriteLine("Choose your type of user (1-3): ");
+            Console.Write("1)Inhabitant \n2)User benefit \n3)Company \n Type:");
             type = Convert.ToInt32(Console.ReadLine());
 
             switch (type)
@@ -117,7 +118,6 @@ namespace Proga_Sharp
             countOfEmploye = Convert.ToInt32(Console.ReadLine());
 
             Company temp = new Company(login, password, name, 0, typeCompany, countOfEmploye);
-
 
             using (var sw = new StreamWriter(temp.Login, true))
             {

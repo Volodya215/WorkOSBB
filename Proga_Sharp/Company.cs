@@ -21,7 +21,7 @@ namespace Proga_Sharp
         //{
         //}
 
-        public Company(string login, string password, string name, int sum, string type, int count_of_employe) : base(login, password, name, sum)
+        public Company(string login, string password, string name, int sum, string type, int count_of_employe) : base(login, password, name, sum, 3)
         {
             Type = type;
             CountOfEmploye = count_of_employe;
@@ -38,6 +38,13 @@ namespace Proga_Sharp
         {
             base.Get_info();
             Console.WriteLine($"Type: {Type}\nCount Of Employe: {CountOfEmploye}\n");
+            Console.ReadLine();
+        }
+
+        public override void DetermineTheAmount(double koef)
+        {
+            koef = 1 + CountOfEmploye / 100;
+            base.DetermineTheAmount(koef);
         }
     }
 }

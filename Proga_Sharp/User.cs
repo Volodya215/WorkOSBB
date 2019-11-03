@@ -8,14 +8,16 @@ using System.IO;
 
 namespace Proga_Sharp
 {
-    class User
+    public class User
     {
-
+        public int type = 0;
         public string Login { get; private set; }
         private string password;
         private string name;
         private int ID, sum;
+        private Services pokaznuku = new Services();
 
+        public string Password { get { return password; } }
         // Конструкто за замовчуванням
         public User()
         {
@@ -27,13 +29,14 @@ namespace Proga_Sharp
         }
 
         // Конструктор з параметрами
-        public User(string login, string password, string name, int sum)
+        public User(string login, string password, string name, int sum, int type)
         {
             this.Login = login;
             this.password = password;
             this.name = name;
             this.sum = sum;
             ID = Indent.GetID();
+            this.type = type;
         }
 
         // Конструктор копіювання
@@ -109,7 +112,7 @@ namespace Proga_Sharp
 
         public static void DownloadDataUser(string login, long position, User temp)
         {
-            using(StreamReader sr = new StreamReader(login))
+            using (StreamReader sr = new StreamReader(login))
             {
                 StreamReaderExtensions.SetPosition(sr, position);
                 temp.Login = sr.ReadLine();
@@ -118,6 +121,40 @@ namespace Proga_Sharp
                 temp.name = sr.ReadLine();
                 temp.sum = Convert.ToInt32(sr.ReadLine());
             }
+        }
+
+        public void FillServices()
+        {
+            Services temp = new Services();
+            Console.WriteLine("Enter metrics:");
+            Console.Write("Electricity = ");
+            temp.Electricity = Convert.ToDouble(Console.ReadLine());
+            Console.Write("Warm = ");
+            temp.Warm = Convert.ToDouble(Console.ReadLine());
+            Console.Write("Gas = ");
+            temp.Gas = Convert.ToDouble(Console.ReadLine());
+            Console.Write("Water = ");
+            temp.Water = Convert.ToDouble(Console.ReadLine());
+            Console.Write("Home pay = ");
+            temp.HomePay = Convert.ToDouble(Console.ReadLine());
+
+            pokaznuku = pokaznuku + temp;
+        }
+
+        public virtual void DetermineTheAmount(double koef)
+        {
+            sum = Convert.ToInt32(koef * (pokaznuku.Electricity * 0.25 + pokaznuku.Warm * 25 + pokaznuku.Gas * 0.34 + (pokaznuku.Water * 13) + 200));
+            Console.WriteLine("Bill: " + sum);
+            Console.ReadLine();
+        }
+
+        public void Pay()
+        {
+            Console.WriteLine("Arrears = " + sum);
+            Console.WriteLine("Successfully completed!");
+            sum = 0;
+            pokaznuku.Electricity = pokaznuku.Warm = pokaznuku.Gas = pokaznuku.Water = pokaznuku.HomePay = 0;
+            Console.ReadLine();
         }
     }
 }

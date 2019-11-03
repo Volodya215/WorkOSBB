@@ -29,7 +29,7 @@ namespace Proga_Sharp
         }
 
         // Конструктор з параметрами
-        public Inhabitant(string login, string password, string name, int sum, int size, int count_inhab) : base(login, password, name, sum)
+        public Inhabitant(string login, string password, string name, int sum, int size, int count_inhab) : base(login, password, name, sum, 1)
         {
             Count_inhab = count_inhab;
             Size = size;
@@ -39,7 +39,12 @@ namespace Proga_Sharp
         {
             base.Get_info();
             Console.WriteLine($"Size: {Size}\nCount_inhab: {Count_inhab}\n");
+            Console.ReadLine();
         }
 
+        public override void DetermineTheAmount(double koef)
+        {
+            base.DetermineTheAmount(1);
+        }
     }
 }

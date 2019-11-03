@@ -21,7 +21,7 @@ namespace Proga_Sharp
         }
 
         // Конструктор з параметрами
-        public UserBenefit(string login, string password, string name, int sum, double discount, string reason) : base(login, password, name, sum)
+        public UserBenefit(string login, string password, string name, int sum, double discount, string reason) : base(login, password, name, sum, 2)
         {
             Discount = discount;
             Reason = reason;
@@ -37,7 +37,14 @@ namespace Proga_Sharp
         public override void Get_info()
         {
             base.Get_info();
-            Console.WriteLine($"Discount: {Discount}\nReason: {Reason}\n");
+            Console.WriteLine($"Discount (%): {Discount}\nReason: {Reason}\n");
+            Console.ReadLine();
+        }
+
+        public override void DetermineTheAmount(double koef)
+        {
+            koef = 1 - Discount / 100;
+            base.DetermineTheAmount(koef);
         }
     }
 }

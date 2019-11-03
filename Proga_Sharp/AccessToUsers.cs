@@ -12,10 +12,73 @@ namespace Proga_Sharp
     {
         public static void LoginTo()
         {
+            Console.Write("Enter login: ");
+            string login = Console.ReadLine();
 
+            User temp = ReadDataUsers(login);
+            if (temp.Login == "")
+                return;
+
+            Console.Write("Enter password: ");
+            string password = Console.ReadLine();
+
+            if(password == temp.Password)
+            {
+                Console.WriteLine("Access is allowed:)");
+                //temp.Get_info();
+            }
+            else
+            {
+                Console.WriteLine("Incorrect password!!! Access denied!");
+                Console.ReadLine();
+                return;
+            }
+
+            while (true)
+            {
+                int key = 0;
+                Console.WriteLine("1. Get data.");
+                Console.WriteLine("2. Enter indicators of counters.");
+                Console.WriteLine("3. Calculate costs");
+                Console.WriteLine("4. Pay");
+                Console.WriteLine("5. Exit");
+
+                Console.WriteLine("Enter key: ");
+                try
+                {
+                    key = Convert.ToInt32(Console.ReadLine());
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("Incorrect key!!!");
+                }
+                Console.Clear();
+
+                switch (key)
+                {
+                    case 1:
+                        temp.Get_info();
+                        break;
+                    case 2:
+                        temp.FillServices();
+                        break;
+                    case 3:
+                        temp.DetermineTheAmount(1);
+                        break;
+                    case 4:
+                        temp.Pay();
+                        break;
+                    case 5:
+                        return;
+                    default:
+                        Console.WriteLine("Incorrect enter key!!! Try again!");
+                        break;
+                }
+                Console.Clear();
+            }
         }
 
-        public static void ReadDataUsers(string login)
+        private static User ReadDataUsers(string login)
         {
             int type = 0;
             long pos = 0;
@@ -31,26 +94,31 @@ namespace Proga_Sharp
             {
                 Console.WriteLine("Uncorrect enter login!!!");
                 Console.WriteLine(e.Message);
-                return;
+                Console.ReadLine();
+                return new User();
             }
 
             if (type == 1)
             {
                 Inhabitant temp = new Inhabitant();
                 OpenInfUsers(temp, pos, login);
+                return temp;
             }
             else if (type == 2)
             {
                 UserBenefit temp = new UserBenefit();
                 OpenInfUsers(temp, pos, login);
+                return temp;
             }
             else if (type == 3)
             {
                 Company temp = new Company();
                 OpenInfUsers(temp, pos, login);
+                return temp;
             }
             else
                 Console.WriteLine("Can't get access!");
+            return new User();
         }
 
         private static void OpenInfUsers(Inhabitant temp, long pos, string login)
@@ -63,7 +131,7 @@ namespace Proga_Sharp
                 pos = StreamReaderExtensions.GetPosition(sr);
             }
             User.DownloadDataUser(login, pos, temp);
-            temp.Get_info();
+           // temp.Get_info();
         }
 
         private static void OpenInfUsers(UserBenefit temp, long pos, string login)
@@ -76,7 +144,7 @@ namespace Proga_Sharp
                 pos = StreamReaderExtensions.GetPosition(sr);
             }
             User.DownloadDataUser(login, pos, temp);
-            temp.Get_info();
+           // temp.Get_info();
         }
 
         private static void OpenInfUsers(Company temp, long pos, string login)
@@ -89,7 +157,7 @@ namespace Proga_Sharp
                 pos = StreamReaderExtensions.GetPosition(sr);
             }
             User.DownloadDataUser(login, pos, temp);
-            temp.Get_info();
+           // temp.Get_info();
         }
     }
 

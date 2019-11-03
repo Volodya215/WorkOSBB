@@ -71,6 +71,7 @@
     <Compile Include="Company.cs" />
     <Compile Include="CreateUser.cs" />
     <Compile Include="DB.cs" />
+    <Compile Include="Services.cs" />
     <Compile Include="StartPage.cs">
       <SubType>Form</SubType>
     </Compile>
