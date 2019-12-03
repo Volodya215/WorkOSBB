@@ -40,6 +40,14 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.closeButton = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.features1Field = new System.Windows.Forms.TextBox();
+            this.features2Field = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.features1Label = new System.Windows.Forms.Label();
+            this.features2Label = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.mainPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -49,6 +57,14 @@
             // mainPanel
             // 
             this.mainPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(19)))), ((int)(((byte)(28)))));
+            this.mainPanel.Controls.Add(this.label5);
+            this.mainPanel.Controls.Add(this.label4);
+            this.mainPanel.Controls.Add(this.features2Label);
+            this.mainPanel.Controls.Add(this.features1Label);
+            this.mainPanel.Controls.Add(this.label3);
+            this.mainPanel.Controls.Add(this.label2);
+            this.mainPanel.Controls.Add(this.features2Field);
+            this.mainPanel.Controls.Add(this.features1Field);
             this.mainPanel.Controls.Add(this.loginLabel);
             this.mainPanel.Controls.Add(this.userNameField);
             this.mainPanel.Controls.Add(this.userSurnameField);
@@ -61,7 +77,7 @@
             this.mainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mainPanel.Location = new System.Drawing.Point(0, 0);
             this.mainPanel.Name = "mainPanel";
-            this.mainPanel.Size = new System.Drawing.Size(800, 471);
+            this.mainPanel.Size = new System.Drawing.Size(800, 600);
             this.mainPanel.TabIndex = 1;
             this.mainPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MainPanel_MouseDown);
             this.mainPanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MainPanel_MouseMove);
@@ -72,10 +88,10 @@
             this.loginLabel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.loginLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.loginLabel.ForeColor = System.Drawing.Color.White;
-            this.loginLabel.Location = new System.Drawing.Point(570, 413);
+            this.loginLabel.Location = new System.Drawing.Point(344, 547);
             this.loginLabel.Name = "loginLabel";
             this.loginLabel.Size = new System.Drawing.Size(128, 17);
-            this.loginLabel.TabIndex = 7;
+            this.loginLabel.TabIndex = 8;
             this.loginLabel.Text = "Авторизуватися";
             this.loginLabel.Click += new System.EventHandler(this.LoginLabel_Click);
             this.loginLabel.MouseEnter += new System.EventHandler(this.LoginLabel_MouseEnter);
@@ -110,10 +126,10 @@
             this.buttonRegister.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(14)))), ((int)(((byte)(34)))));
             this.buttonRegister.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonRegister.Font = new System.Drawing.Font("Trebuchet MS", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonRegister.Location = new System.Drawing.Point(281, 386);
+            this.buttonRegister.Location = new System.Drawing.Point(298, 482);
             this.buttonRegister.Name = "buttonRegister";
             this.buttonRegister.Size = new System.Drawing.Size(231, 62);
-            this.buttonRegister.TabIndex = 5;
+            this.buttonRegister.TabIndex = 7;
             this.buttonRegister.Text = "Зареєструватися";
             this.buttonRegister.UseVisualStyleBackColor = false;
             this.buttonRegister.Click += new System.EventHandler(this.ButtonRegister_Click);
@@ -180,7 +196,7 @@
             this.closeButton.Location = new System.Drawing.Point(770, 0);
             this.closeButton.Name = "closeButton";
             this.closeButton.Size = new System.Drawing.Size(30, 36);
-            this.closeButton.TabIndex = 1;
+            this.closeButton.TabIndex = 9;
             this.closeButton.Text = "x";
             this.closeButton.Click += new System.EventHandler(this.CloseButton_Click);
             this.closeButton.MouseEnter += new System.EventHandler(this.CloseButton_MouseEnter);
@@ -195,14 +211,96 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(800, 122);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Регістрація";
+            this.label1.Text = "Реєстрація";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // features1Field
+            // 
+            this.features1Field.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.features1Field.Location = new System.Drawing.Point(140, 392);
+            this.features1Field.Name = "features1Field";
+            this.features1Field.Size = new System.Drawing.Size(231, 42);
+            this.features1Field.TabIndex = 5;
+            // 
+            // features2Field
+            // 
+            this.features2Field.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.features2Field.Location = new System.Drawing.Point(492, 392);
+            this.features2Field.Name = "features2Field";
+            this.features2Field.Size = new System.Drawing.Size(231, 42);
+            this.features2Field.TabIndex = 6;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold);
+            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label2.Location = new System.Drawing.Point(206, 264);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(84, 31);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "Логін";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold);
+            this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label3.Location = new System.Drawing.Point(552, 264);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(114, 31);
+            this.label3.TabIndex = 10;
+            this.label3.Text = "Пароль";
+            // 
+            // features1Label
+            // 
+            this.features1Label.AutoSize = true;
+            this.features1Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
+            this.features1Label.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.features1Label.Location = new System.Drawing.Point(134, 358);
+            this.features1Label.Name = "features1Label";
+            this.features1Label.Size = new System.Drawing.Size(184, 29);
+            this.features1Label.TabIndex = 11;
+            this.features1Label.Text = "Властивість 1";
+            // 
+            // features2Label
+            // 
+            this.features2Label.AutoSize = true;
+            this.features2Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
+            this.features2Label.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.features2Label.Location = new System.Drawing.Point(486, 358);
+            this.features2Label.Name = "features2Label";
+            this.features2Label.Size = new System.Drawing.Size(184, 29);
+            this.features2Label.TabIndex = 12;
+            this.features2Label.Text = "Властивість 2";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold);
+            this.label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label4.Location = new System.Drawing.Point(215, 152);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(66, 31);
+            this.label4.TabIndex = 13;
+            this.label4.Text = "Ім’я";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold);
+            this.label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label5.Location = new System.Drawing.Point(540, 152);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(143, 31);
+            this.label5.TabIndex = 14;
+            this.label5.Text = "Прізвище";
             // 
             // RegisterForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 471);
+            this.ClientSize = new System.Drawing.Size(800, 600);
             this.Controls.Add(this.mainPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "RegisterForm";
@@ -231,5 +329,13 @@
         private System.Windows.Forms.TextBox userSurnameField;
         private System.Windows.Forms.TextBox userNameField;
         private System.Windows.Forms.Label loginLabel;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox features2Field;
+        private System.Windows.Forms.TextBox features1Field;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label features2Label;
+        private System.Windows.Forms.Label features1Label;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
     }
 }

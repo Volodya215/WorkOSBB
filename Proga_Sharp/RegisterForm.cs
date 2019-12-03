@@ -13,14 +13,16 @@ namespace Proga_Sharp
 {
     public partial class RegisterForm : Form
     {
-        public RegisterForm()
+        private int type;
+        public RegisterForm(int type)
         {
+            this.type = type;
             InitializeComponent();
 
             userNameField.Text = "Введіть ім’я";
             userNameField.ForeColor = Color.Gray;
 
-            userSurnameField.Text = "Введіть фамілію";
+            userSurnameField.Text = "Введіть прізвище";
             userSurnameField.ForeColor = Color.Gray;
 
             loginField.Text = "Введіть логін";
@@ -88,7 +90,7 @@ namespace Proga_Sharp
         // Підказка в полі фамілії
         private void UserSurnameField_Enter(object sender, EventArgs e)
         {
-            if (userSurnameField.Text == "Введіть фамілію")
+            if (userSurnameField.Text == "Введіть прізвище")
             {
                 userSurnameField.Text = "";
                 userSurnameField.ForeColor = Color.Black;
@@ -99,7 +101,7 @@ namespace Proga_Sharp
         {
             if (userSurnameField.Text == "")
             {
-                userSurnameField.Text = "Введіть фамілію";
+                userSurnameField.Text = "Введіть прізвище";
                 userSurnameField.ForeColor = Color.Gray;
             }
         }
@@ -146,9 +148,9 @@ namespace Proga_Sharp
 
         private void ButtonRegister_Click(object sender, EventArgs e)
         {
-            if(userNameField.Text == "Введіть ім’я" || userSurnameField.Text == "Введіть фамілію" )
+            if(userNameField.Text == "Введіть ім’я" || userSurnameField.Text == "Введіть прізвище" )
             {
-                MessageBox.Show("Не введено ім’я або фамілію");
+                MessageBox.Show("Не введено ім’я або прізвище");
                 return;
             }
 
@@ -158,17 +160,20 @@ namespace Proga_Sharp
                 return;
             }
 
-            if (isUserExist())
+            if (isUserExist() && CheckFeatures())
                 return;
 
-
             DB db = new DB();
-            MySqlCommand command = new MySqlCommand("INSERT INTO `users_data`.`users` (`login`, `pass`, `name`, `surname`) VALUES (@login, @pass, @name, @surname)", db.getConnection());
+            MySqlCommand command = new MySqlCommand("INSERT INTO `users_data`.`users` (`login`, `pass`, `name`, `surname`, `type`, `sum`, `features1`, `features2`) VALUES (@login, @pass, @name, @surname, @type, @sum, @features1, @features2)", db.getConnection());
 
             command.Parameters.Add("@login", MySqlDbType.VarChar).Value = loginField.Text;
             command.Parameters.Add("@pass", MySqlDbType.VarChar).Value = passwordField.Text;
             command.Parameters.Add("@name", MySqlDbType.VarChar).Value = userNameField.Text;
             command.Parameters.Add("@surname", MySqlDbType.VarChar).Value = userSurnameField.Text;
+            command.Parameters.Add("@type", MySqlDbType.Int32).Value = type;
+            command.Parameters.Add("@sum", MySqlDbType.Double).Value = 0.0;
+            command.Parameters.Add("@features1", MySqlDbType.VarChar).Value = features1Field.Text;
+            command.Parameters.Add("@features2", MySqlDbType.VarChar).Value = features2Field.Text;
 
             db.openConnection();
 
@@ -203,21 +208,73 @@ namespace Proga_Sharp
                 return false;
         }
 
+        // натиснута кнопка "Авторизуватися"
         private void LoginLabel_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            Hide();
             LoginForm loginForm = new LoginForm();
             loginForm.Show();
         }
 
-        private void LoginLabel_MouseEnter(object sender, EventArgs e)
+        // Перевіряємо на коректність введені властивості
+        private bool CheckFeatures()
         {
-            loginLabel.ForeColor = Color.Red;
+            if (type == 1)
+            {
+                try
+                {
+                    Convert.ToDouble(features1Field.Text);
+                    Convert.ToInt32(features2Field.Text);
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Некоректно введено властивості!!!");
+                    return false;
+                }
+            }
+            else if (type == 2)
+            {
+                try
+                {
+                    double discount = Convert.ToDouble(features1Field.Text);
+
+                    if (discount < 0 && discount > 100)
+                    {
+                        MessageBox.Show("Некоректно введено знижку!!!");
+                        return false;
+                    }
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Некоректно введено властивості!!!");
+                    return false;
+                }
+            }
+            else if (type == 3)
+            {
+                try
+                {
+                    Convert.ToInt32(features2Field.Text);
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Некоректно введено властивості!!!");
+                    return false;
+                }
+            }
+            return true;
         }
 
-        private void LoginLabel_MouseLeave(object sender, EventArgs e)
+        // Зміна кольору кнопки
+        private void LoginLabel_MouseEnter(object sender, EventArgs e) => loginLabel.ForeColor = Color.Red;
+
+        private void LoginLabel_MouseLeave(object sender, EventArgs e) => loginLabel.ForeColor = Color.White;
+
+        // Встановлюємо назви властивостей залежно від типу користувача
+        public void NameLabel(string feat1, string feat2)
         {
-            loginLabel.ForeColor = Color.White;
+            features1Label.Text = feat1;
+            features2Label.Text = feat2;
         }
     }
 }

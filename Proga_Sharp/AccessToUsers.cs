@@ -37,13 +37,14 @@ namespace Proga_Sharp
             while (true)
             {
                 int key = 0;
+                Console.WriteLine("Volodymyr Dolid IS-82 OSBB\n");
                 Console.WriteLine("1. Get data.");
                 Console.WriteLine("2. Enter indicators of counters.");
                 Console.WriteLine("3. Calculate costs");
                 Console.WriteLine("4. Pay");
                 Console.WriteLine("5. Exit");
 
-                Console.WriteLine("Enter key: ");
+                Console.Write("Enter key: ");
                 try
                 {
                     key = Convert.ToInt32(Console.ReadLine());
@@ -143,7 +144,7 @@ namespace Proga_Sharp
                 temp.Discount = Convert.ToDouble(sr.ReadLine());
                 pos = StreamReaderExtensions.GetPosition(sr);
             }
-            User.DownloadDataUser(login, pos, temp);
+            //User.DownloadDataUser(login, pos, temp);
            // temp.Get_info();
         }
 

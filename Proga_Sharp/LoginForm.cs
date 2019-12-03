@@ -139,8 +139,8 @@ namespace Proga_Sharp
         {
             this.Hide();
 
-            RegisterForm registrForm = new RegisterForm();
-            registrForm.Show();
+            ChooseType chooseT = new ChooseType();
+            chooseT.Show();
         }
 
         // КОли наводимо мишку, текст змінює колір на червоний

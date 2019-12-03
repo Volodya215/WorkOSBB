@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{E9F8ECDA-A7F9-40AA-B10A-291100761071}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>WinExe</OutputType>
     <RootNamespace>Proga_Sharp</RootNamespace>
     <AssemblyName>Proga_Sharp</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
@@ -68,6 +68,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccessToUsers.cs" />
+    <Compile Include="ChooseType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChooseType.Designer.cs">
+      <DependentUpon>ChooseType.cs</DependentUpon>
+    </Compile>
     <Compile Include="Company.cs" />
     <Compile Include="CreateUser.cs" />
     <Compile Include="DB.cs" />
@@ -111,6 +117,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="ChooseType.resx">
+      <DependentUpon>ChooseType.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="StartPage.resx">
       <DependentUpon>StartPage.cs</DependentUpon>
     </EmbeddedResource>

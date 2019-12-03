@@ -32,8 +32,8 @@ namespace Proga_Sharp
         private void Registration_Click(object sender, EventArgs e)
         {
             this.Hide();
-            RegisterForm registr = new RegisterForm();
-            registr.Show();
+            ChooseType chooseT = new ChooseType();
+            chooseT.Show();
         }
     }
 }
