@@ -37,7 +37,7 @@ namespace Proga_Sharp
         // Робота з кнопкою закриття вікна
         private void CloseButton_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Application.Exit();
         }
 
         private void CloseButton_MouseEnter(object sender, EventArgs e)
@@ -48,6 +48,30 @@ namespace Proga_Sharp
         private void CloseButton_MouseLeave(object sender, EventArgs e)
         {
             closeButton.ForeColor = Color.White;
+        }
+
+        // Переглянути дані про юзера
+        private void DataUserButton_Click(object sender, EventArgs e)
+        {
+            Hide();
+            UserData ud = new UserData();
+            ud.Show();
+        }
+
+        // Ввести показники лічильників
+        private void EnterButton_Click(object sender, EventArgs e)
+        {
+            Hide();
+            EnterServices es = new EnterServices();
+            es.Show();
+        }
+
+        // Змінити юзера
+        private void ChangeButton_Click(object sender, EventArgs e)
+        {
+            Hide();
+            LoginForm lf = new LoginForm();
+            lf.Show();
         }
     }
 }

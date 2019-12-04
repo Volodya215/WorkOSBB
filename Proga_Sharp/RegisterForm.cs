@@ -87,7 +87,7 @@ namespace Proga_Sharp
             }
         }
 
-        // Підказка в полі фамілії
+        // Підказка в полі прізвище
         private void UserSurnameField_Enter(object sender, EventArgs e)
         {
             if (userSurnameField.Text == "Введіть прізвище")

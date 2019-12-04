@@ -87,7 +87,12 @@ namespace Proga_Sharp
             
 
             if (table.Rows.Count > 0)
+            {
                 MessageBox.Show("Доступ дозволено");
+                Hide();
+                MainForm mf = new MainForm();
+                mf.Show();
+            }
             else
                 MessageBox.Show("Невірно введений логін або пароль!");
         }

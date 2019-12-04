@@ -17,7 +17,7 @@ namespace Proga_Sharp
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new StartPage());
+            Application.Run(new MainForm());
         }
 
 
