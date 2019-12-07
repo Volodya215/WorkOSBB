@@ -175,10 +175,16 @@ namespace Proga_Sharp
             command.Parameters.Add("@features1", MySqlDbType.VarChar).Value = features1Field.Text;
             command.Parameters.Add("@features2", MySqlDbType.VarChar).Value = features2Field.Text;
 
+
             db.openConnection();
 
             if ((command.ExecuteNonQuery() == 1))
+            {
                 MessageBox.Show("Акаунт успішно створено");
+                Hide();
+                LoginForm lf = new LoginForm();
+                lf.Show();
+            }
             else
                 MessageBox.Show("Акаунт не створено");
 

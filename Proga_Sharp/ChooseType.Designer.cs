@@ -171,6 +171,7 @@
             this.Controls.Add(this.mainPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ChooseType";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ChooseType";
             this.mainPanel.ResumeLayout(false);
             this.mainPanel.PerformLayout();

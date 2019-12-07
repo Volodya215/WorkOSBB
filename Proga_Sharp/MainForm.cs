@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,8 +13,10 @@ namespace Proga_Sharp
 {
     public partial class MainForm : Form
     {
-        public MainForm()
+        private string loginUser;
+        public MainForm(string loginUser)
         {
+            this.loginUser = loginUser;
             InitializeComponent();
         }
 
@@ -54,7 +57,7 @@ namespace Proga_Sharp
         private void DataUserButton_Click(object sender, EventArgs e)
         {
             Hide();
-            UserData ud = new UserData();
+            UserData ud = new UserData(loginUser);
             ud.Show();
         }
 
@@ -62,7 +65,7 @@ namespace Proga_Sharp
         private void EnterButton_Click(object sender, EventArgs e)
         {
             Hide();
-            EnterServices es = new EnterServices();
+            EnterServices es = new EnterServices(loginUser);
             es.Show();
         }
 
@@ -72,6 +75,26 @@ namespace Proga_Sharp
             Hide();
             LoginForm lf = new LoginForm();
             lf.Show();
+        }
+
+        private void PayButton_Click(object sender, EventArgs e)
+        {
+            DB db = new DB();
+            MySqlCommand command = new MySqlCommand("UPDATE `users_data`.`users` SET `sum` = @sum WHERE `users`.`login` = @uL", db.getConnection());
+
+            command.Parameters.Add("@sum", MySqlDbType.VarChar).Value = 0.0;
+            command.Parameters.Add("@uL", MySqlDbType.VarChar).Value = loginUser;
+
+            db.openConnection();
+
+            if ((command.ExecuteNonQuery() == 1))
+            {
+                MessageBox.Show("Послуги оплачено");
+            }
+            else
+                MessageBox.Show("Помилка доступу");
+
+            db.closeConnection();
         }
     }
 }

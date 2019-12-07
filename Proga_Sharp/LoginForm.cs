@@ -82,15 +82,18 @@ namespace Proga_Sharp
             command.Parameters.Add("@uL", MySqlDbType.VarChar).Value = loginUser;
             command.Parameters.Add("@uP", MySqlDbType.VarChar).Value = passUser;
 
+
             adapter.SelectCommand = command;
             adapter.Fill(table);
-            
+
+            DataRow row = table.Rows[0];
+            int id = Convert.ToInt32(row[0]);
 
             if (table.Rows.Count > 0)
             {
                 MessageBox.Show("Доступ дозволено");
                 Hide();
-                MainForm mf = new MainForm();
+                MainForm mf = new MainForm(loginUser);
                 mf.Show();
             }
             else

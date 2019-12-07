@@ -35,6 +35,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.closeButton = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.payButton = new System.Windows.Forms.Button();
             this.mainPanel.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -42,6 +43,7 @@
             // mainPanel
             // 
             this.mainPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(19)))), ((int)(((byte)(28)))));
+            this.mainPanel.Controls.Add(this.payButton);
             this.mainPanel.Controls.Add(this.changeButton);
             this.mainPanel.Controls.Add(this.enterButton);
             this.mainPanel.Controls.Add(this.dataUserButton);
@@ -50,7 +52,7 @@
             this.mainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mainPanel.Location = new System.Drawing.Point(0, 0);
             this.mainPanel.Name = "mainPanel";
-            this.mainPanel.Size = new System.Drawing.Size(600, 450);
+            this.mainPanel.Size = new System.Drawing.Size(600, 550);
             this.mainPanel.TabIndex = 1;
             // 
             // changeButton
@@ -61,7 +63,7 @@
             this.changeButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(14)))), ((int)(((byte)(34)))));
             this.changeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.changeButton.Font = new System.Drawing.Font("Trebuchet MS", 15F, System.Drawing.FontStyle.Bold);
-            this.changeButton.Location = new System.Drawing.Point(164, 348);
+            this.changeButton.Location = new System.Drawing.Point(164, 357);
             this.changeButton.Name = "changeButton";
             this.changeButton.Size = new System.Drawing.Size(283, 44);
             this.changeButton.TabIndex = 3;
@@ -140,11 +142,27 @@
             this.label1.Text = "Особистий кабінет";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // payButton
+            // 
+            this.payButton.AutoSize = true;
+            this.payButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(180)))), ((int)(((byte)(240)))));
+            this.payButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(5)))), ((int)(((byte)(5)))));
+            this.payButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(14)))), ((int)(((byte)(34)))));
+            this.payButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.payButton.Font = new System.Drawing.Font("Trebuchet MS", 15F, System.Drawing.FontStyle.Bold);
+            this.payButton.Location = new System.Drawing.Point(164, 448);
+            this.payButton.Name = "payButton";
+            this.payButton.Size = new System.Drawing.Size(283, 44);
+            this.payButton.TabIndex = 4;
+            this.payButton.Text = "Оплатити послуги";
+            this.payButton.UseVisualStyleBackColor = false;
+            this.payButton.Click += new System.EventHandler(this.PayButton_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(600, 450);
+            this.ClientSize = new System.Drawing.Size(600, 550);
             this.Controls.Add(this.mainPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MainForm";
@@ -167,5 +185,6 @@
         private System.Windows.Forms.Button changeButton;
         private System.Windows.Forms.Button enterButton;
         private System.Windows.Forms.Button dataUserButton;
+        private System.Windows.Forms.Button payButton;
     }
 }
