@@ -86,7 +86,7 @@
             this.endButton.Location = new System.Drawing.Point(209, 431);
             this.endButton.Name = "endButton";
             this.endButton.Size = new System.Drawing.Size(159, 44);
-            this.endButton.TabIndex = 4;
+            this.endButton.TabIndex = 5;
             this.endButton.Text = "Зберегти";
             this.endButton.UseVisualStyleBackColor = false;
             this.endButton.Click += new System.EventHandler(this.EndButton_Click);
@@ -95,25 +95,43 @@
             // 
             this.WarmNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.WarmNum.Location = new System.Drawing.Point(380, 368);
+            this.WarmNum.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
             this.WarmNum.Name = "WarmNum";
             this.WarmNum.Size = new System.Drawing.Size(120, 26);
-            this.WarmNum.TabIndex = 18;
+            this.WarmNum.TabIndex = 4;
+            this.WarmNum.Enter += new System.EventHandler(this.answer_Enter);
             // 
             // GasNum
             // 
             this.GasNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.GasNum.Location = new System.Drawing.Point(380, 312);
+            this.GasNum.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
             this.GasNum.Name = "GasNum";
             this.GasNum.Size = new System.Drawing.Size(120, 26);
-            this.GasNum.TabIndex = 17;
+            this.GasNum.TabIndex = 3;
+            this.GasNum.Enter += new System.EventHandler(this.answer_Enter);
             // 
             // waterNum
             // 
             this.waterNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.waterNum.Location = new System.Drawing.Point(380, 260);
+            this.waterNum.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
             this.waterNum.Name = "waterNum";
             this.waterNum.Size = new System.Drawing.Size(120, 26);
-            this.waterNum.TabIndex = 16;
+            this.waterNum.TabIndex = 2;
+            this.waterNum.Enter += new System.EventHandler(this.answer_Enter);
             // 
             // label7
             // 
@@ -185,9 +203,15 @@
             // 
             this.electricNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.electricNum.Location = new System.Drawing.Point(380, 204);
+            this.electricNum.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
             this.electricNum.Name = "electricNum";
             this.electricNum.Size = new System.Drawing.Size(120, 26);
             this.electricNum.TabIndex = 1;
+            this.electricNum.Enter += new System.EventHandler(this.answer_Enter);
             // 
             // panel2
             // 
