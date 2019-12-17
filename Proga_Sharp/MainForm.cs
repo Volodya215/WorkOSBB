@@ -96,5 +96,12 @@ namespace Proga_Sharp
 
             db.closeConnection();
         }
+
+        private void Game_Click(object sender, EventArgs e)
+        {
+            Hide();
+            Form1 g = new Form1();
+            g.Show();
+        }
     }
 }

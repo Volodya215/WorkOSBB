@@ -29,13 +29,14 @@
         private void InitializeComponent()
         {
             this.mainPanel = new System.Windows.Forms.Panel();
+            this.Game = new System.Windows.Forms.Button();
+            this.payButton = new System.Windows.Forms.Button();
             this.changeButton = new System.Windows.Forms.Button();
             this.enterButton = new System.Windows.Forms.Button();
             this.dataUserButton = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.closeButton = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.payButton = new System.Windows.Forms.Button();
             this.mainPanel.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -43,6 +44,7 @@
             // mainPanel
             // 
             this.mainPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(19)))), ((int)(((byte)(28)))));
+            this.mainPanel.Controls.Add(this.Game);
             this.mainPanel.Controls.Add(this.payButton);
             this.mainPanel.Controls.Add(this.changeButton);
             this.mainPanel.Controls.Add(this.enterButton);
@@ -54,6 +56,34 @@
             this.mainPanel.Name = "mainPanel";
             this.mainPanel.Size = new System.Drawing.Size(600, 550);
             this.mainPanel.TabIndex = 1;
+            // 
+            // Game
+            // 
+            this.Game.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.Game.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(19)))), ((int)(((byte)(28)))));
+            this.Game.Location = new System.Drawing.Point(0, 515);
+            this.Game.Name = "Game";
+            this.Game.Size = new System.Drawing.Size(75, 23);
+            this.Game.TabIndex = 5;
+            this.Game.Text = "+";
+            this.Game.UseVisualStyleBackColor = false;
+            this.Game.Click += new System.EventHandler(this.Game_Click);
+            // 
+            // payButton
+            // 
+            this.payButton.AutoSize = true;
+            this.payButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(180)))), ((int)(((byte)(240)))));
+            this.payButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(5)))), ((int)(((byte)(5)))));
+            this.payButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(14)))), ((int)(((byte)(34)))));
+            this.payButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.payButton.Font = new System.Drawing.Font("Trebuchet MS", 15F, System.Drawing.FontStyle.Bold);
+            this.payButton.Location = new System.Drawing.Point(164, 448);
+            this.payButton.Name = "payButton";
+            this.payButton.Size = new System.Drawing.Size(283, 44);
+            this.payButton.TabIndex = 4;
+            this.payButton.Text = "Оплатити послуги";
+            this.payButton.UseVisualStyleBackColor = false;
+            this.payButton.Click += new System.EventHandler(this.PayButton_Click);
             // 
             // changeButton
             // 
@@ -142,22 +172,6 @@
             this.label1.Text = "Особистий кабінет";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // payButton
-            // 
-            this.payButton.AutoSize = true;
-            this.payButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(180)))), ((int)(((byte)(240)))));
-            this.payButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(5)))), ((int)(((byte)(5)))));
-            this.payButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(14)))), ((int)(((byte)(34)))));
-            this.payButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.payButton.Font = new System.Drawing.Font("Trebuchet MS", 15F, System.Drawing.FontStyle.Bold);
-            this.payButton.Location = new System.Drawing.Point(164, 448);
-            this.payButton.Name = "payButton";
-            this.payButton.Size = new System.Drawing.Size(283, 44);
-            this.payButton.TabIndex = 4;
-            this.payButton.Text = "Оплатити послуги";
-            this.payButton.UseVisualStyleBackColor = false;
-            this.payButton.Click += new System.EventHandler(this.PayButton_Click);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -186,5 +200,6 @@
         private System.Windows.Forms.Button enterButton;
         private System.Windows.Forms.Button dataUserButton;
         private System.Windows.Forms.Button payButton;
+        private System.Windows.Forms.Button Game;
     }
 }

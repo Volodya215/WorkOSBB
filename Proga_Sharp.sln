@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.29201.188
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Proga_Sharp", "Proga_Sharp\Proga_Sharp.csproj", "{E9F8ECDA-A7F9-40AA-B10A-291100761071}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup1", "Setup1\Setup1.vdproj", "{A48EEAF7-C43B-47FA-9902-37D84286E180}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,8 @@ Global
 		{E9F8ECDA-A7F9-40AA-B10A-291100761071}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E9F8ECDA-A7F9-40AA-B10A-291100761071}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E9F8ECDA-A7F9-40AA-B10A-291100761071}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A48EEAF7-C43B-47FA-9902-37D84286E180}.Debug|Any CPU.ActiveCfg = Debug
+		{A48EEAF7-C43B-47FA-9902-37D84286E180}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
