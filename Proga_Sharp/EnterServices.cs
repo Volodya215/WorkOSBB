@@ -73,6 +73,7 @@ namespace Proga_Sharp
                 MessageBox.Show("Помилка доступу");
 
             db.closeConnection();
+            SetHomePay();
         }
 
         private double DeterminePay(String type, DataRow row)
@@ -93,6 +94,36 @@ namespace Proga_Sharp
                 sum *= (1 + Convert.ToDouble(row[8]) / 100.0);
             }
             return sum;
+        }
+
+        private void SetHomePay()
+        {
+            DataTable table = new DataTable();
+            MySqlDataAdapter adapter = new MySqlDataAdapter();
+
+            DB db = new DB();
+
+            MySqlCommand command = new MySqlCommand("SELECT sum FROM `users` WHERE `login` = @uL", db.getConnection());
+            command.Parameters.Add("@uL", MySqlDbType.VarChar).Value = "admin";
+            adapter.SelectCommand = command;
+            adapter.Fill(table);
+            DataRow row = table.Rows[0];
+
+            int sum = Convert.ToInt32(row[0]);
+            sum += 200;
+
+            MySqlCommand command1 = new MySqlCommand("UPDATE `users_data`.`users` SET `sum` = @sum WHERE `users`.`login` = @login", db.getConnection());
+
+            command1.Parameters.Add("@sum", MySqlDbType.Double).Value = sum;
+            command1.Parameters.Add("@login", MySqlDbType.VarChar).Value = "admin";
+
+            db.openConnection();
+
+            if ((command1.ExecuteNonQuery() != 1))
+            {
+                MessageBox.Show("Помилка доступу");
+            }
+            db.closeConnection();
         }
 
         private void answer_Enter(object sender, EventArgs e)

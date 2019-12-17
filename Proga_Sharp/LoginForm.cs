@@ -72,6 +72,14 @@ namespace Proga_Sharp
             String loginUser = loginField.Text;
             String passUser = passwordField.Text;
 
+            if(loginUser == "admin" && passUser == "admin")
+            {
+                Hide();
+                AdminInfo ai = new AdminInfo();
+                ai.Show();
+                return;
+            }
+
             DB db = new DB();
 
             DataTable table = new DataTable();
@@ -86,6 +94,15 @@ namespace Proga_Sharp
             adapter.SelectCommand = command;
             adapter.Fill(table);
 
+            try
+            {
+                DataRow temp = table.Rows[0];
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Невірно введено пароль!");
+                return;
+            }
             DataRow row = table.Rows[0];
             int id = Convert.ToInt32(row[0]);
 
